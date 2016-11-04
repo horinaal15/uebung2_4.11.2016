@@ -24,16 +24,6 @@ public class Circle extends CurvedShape {
 
 
     @Override
-    public double calcArea() {
-        return Math.PI*radius*radius;
-    }
-
-    @Override
-    public double calcPerimeter() {
-        return 2*Math.PI*radius;
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -41,8 +31,9 @@ public class Circle extends CurvedShape {
 
         Circle circle = (Circle) o;
 
-        return Double.compare(circle.radius, radius) == 0;
+        if (Double.compare(circle.radius, radius) != 0) return false;
 
+        return true;
     }
 
     @Override
@@ -52,6 +43,16 @@ public class Circle extends CurvedShape {
         temp = Double.doubleToLongBits(radius);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
+    }
+
+    @Override
+    public double calcArea() {
+        return Math.PI*radius*radius;
+    }
+
+    @Override
+    public double calcPerimeter() {
+        return 2*Math.PI*radius;
     }
 
     @Override
