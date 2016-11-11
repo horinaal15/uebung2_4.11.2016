@@ -23,6 +23,22 @@ public class Main {
         fillList(shapeList);
 
         printList(shapeList);
+
+        List<Circle> circleList = new ArrayList<>();
+
+        for (GeometricShape shape : shapeList) {
+            if (shape instanceof Circle)
+            {
+                Circle circle = (Circle)shape;
+                circleList.add(circle);
+            }
+        }
+        System.out.println(" -------- only circles ---------------");
+        for (Circle circle : circleList) {
+            System.out.println(circle);
+
+        }
+        //Collections.
     }
 
     public void fillList(List<GeometricShape> shapeList) {
